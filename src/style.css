@@ -1,0 +1,7 @@
+body {
+    font-family: sans-serif; /* Appliquer la police à toute la page */
+}
+
+#characters {
+    list-style-type: square; /* Mettre les puces en carré */
+}

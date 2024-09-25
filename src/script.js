@@ -20,7 +20,7 @@ async function getCharacters() {
         // Parcourt chaque personnage et crée un élément <li> pour l'ajouter à la liste
         characters.forEach(character => {
             const li = document.createElement('li');
-            li.textContent = `${character.id} - ${character.name}`;
+            li.textContent = `${character.name}`;
             characterList.appendChild(li);
         });
 

@@ -1,4 +1,3 @@
-// src/script.js
 async function getCharacters() {
     try {
         // Appel à l'API pour récupérer les données du fichier characters.json
@@ -12,8 +11,11 @@ async function getCharacters() {
         // Conversion de la réponse en format JSON
         const characters = await response.json();
 
-        // Sélectionne l'élément <ul> dans lequel afficher les personnages
+        // Sélection de l'élément <ul> avec l'identifiant 'characters'
         const characterList = document.getElementById('characters');
+
+        // Vider le contenu actuel de la liste pour éviter des doublons
+        characterList.innerHTML = '';
 
         // Parcourt chaque personnage et crée un élément <li> pour l'ajouter à la liste
         characters.forEach(character => {
@@ -22,7 +24,7 @@ async function getCharacters() {
             characterList.appendChild(li);
         });
 
-        // Affiche également les personnages dans la console pour vérification
+        // Affichage des données dans la console pour vérification
         console.log(characters);
 
     } catch (error) {
@@ -31,5 +33,5 @@ async function getCharacters() {
     }
 }
 
-// Appel de la fonction getCharacters pour récupérer et afficher les données
+// Appel de la fonction pour récupérer et afficher les personnages
 getCharacters();

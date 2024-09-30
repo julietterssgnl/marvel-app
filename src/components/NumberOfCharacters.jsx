@@ -1,4 +1,4 @@
-export function NumberOfCharacters({ characters }) {
+export function NumberOfCharacters({ characters =[]}) {
   const count = characters.length;
 
   return (

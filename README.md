@@ -20,3 +20,17 @@ L'application supporte le rechargement à chaud, ce qui signifie que les modific
 ## Point d'entrée
 
 Le point d'entrée de l'application est le fichier `index.html` situé à la racine du projet. C'est ce fichier qui est chargé dans le navigateur et qui charge ensuite le fichier `main.jsx` qui est le point d'entrée de l'application React.
+
+
+## Comment lancer les tests unitaires
+
+Lancer les tests unitaires
+Pour exécuter les tests unitaires dans votre projet, suivez ces étapes :
+
+Installer les dépendances :
+
+npm install --save-dev jest @testing-library/react @testing-library/jest-dom
+
+Lancer les tests : 
+
+npm test

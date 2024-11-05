@@ -14,6 +14,6 @@ test('renders the correct number of characters when characters array is not empt
 
 test('renders "There is no character" when no characters are provided', () => {
     render(<NumberOfCharacters />);
-    screen.debug();
+    // screen.debug();
     expect(screen.getByText('There is no character')).toBeInTheDocument();
 });

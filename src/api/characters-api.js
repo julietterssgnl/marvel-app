@@ -8,7 +8,16 @@ export function getCharacters() {
     return characters;
 }
 
-// Fonction pour retourner un personnage par son ID
-export function getCharacterById(id) {
-    return characters.find(character => character.id === id);
+/**
+ * Get a character by id
+ * @param {number} id - The id of the character
+ * @returns {Object} The character with the provided id
+ */
+
+export const getCharacterById = (id) => {
+    const character = characters.find((character) => character.id === id);
+    if (!character) {
+        throw new Error(`Character with id ${id} not found`);
+    }
+    return character;
 }

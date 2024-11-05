@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 
 const AboutPage = () => {
   // Utilisé pour changer le titre de la page
-  useEffect(() => {
-    document.title = "About | Marvel App"; // Modification du titre de la page
-  }, []);
+    useEffect(() => {
+      document.title = "About | Marvel App"; // Modification du titre de la page
+    }, []);
 
   return (
     <div>

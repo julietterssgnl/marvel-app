@@ -45,6 +45,6 @@ test('render CharactersPage component', () => {
     expect(captainAmericaElement).toBeInTheDocument();
     
     // expect the number of characters to be in the document
-    const numberOfCharactersElement = screen.getByText(`There is ${characters.length} characters`);
-    expect(numberOfCharactersElement).toBeInTheDocument();
+    const countElement = screen.getByText('There are 2 characters');
+    expect(countElement).toBeInTheDocument();
 });

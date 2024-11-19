@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
-  <file path="C:\Users\jrossi04\marvel-app\src\components\NumberOfCharacters.test.jsx">
-    <testCase name="renders &quot;There is no character&quot; when characters array is empty" duration="26"/>
-    <testCase name="renders the correct number of characters when characters array is not empty" duration="4"/>
-    <testCase name="renders &quot;There is no character&quot; when no characters are provided" duration="2"/>
-    <testCase name="renders &quot;There is one character&quot; when one character is provided" duration="2"/>
-  </file>
-  <file path="C:\Users\jrossi04\marvel-app\src\pages\CharactersPage.test.jsx">
-    <testCase name="render CharactersPage component" duration="50"/>
+  <file path="C:\Users\jrossi04\marvel-app\src\api\characters-api.test.js">
+    <testCase name="getCharacters should return characters sorted by name in ascending order by default" duration="12"/>
+    <testCase name="getCharacters should return characters sorted by name in descending order" duration="1"/>
+    <testCase name="getCharacters should return characters sorted by modified date in ascending order" duration="1"/>
+    <testCase name="getCharacters should return characters sorted by modified date in descending order" duration="0"/>
+    <testCase name="getCharacters should return characters sorted by name in descending order using custom sort function" duration="1"/>
+    <testCase name="getCharacterById should return the character with the provided id" duration="0"/>
+    <testCase name="getCharacterById should throw an error if the character with the provided id does not exist" duration="3"/>
   </file>
 </testExecutions>

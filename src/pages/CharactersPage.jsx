@@ -1,29 +1,41 @@
 // FILEPATH: /c:/Users/jrossi04/marvel-app/src/pages/CharactersPage.jsx
 
 import { NumberOfCharacters } from '../components/NumberOfCharacters'; // Chemin d'accès pour l'importation
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate, useSearchParams } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
 
 export default function CharactersPage() {
     const characters = useLoaderData(); // Assurez-vous que cette fonction soit importée correctement
     const navigate = useNavigate();
+    const [searchParams, setSearchParams] = useSearchParams();
 
-    const [sortBy, setSortBy] = useState('name');
-    const [order, setOrder] = useState('asc');
+    const sortByParam = searchParams.get('sort') || 'name';
+    const orderParam = searchParams.get('order') || 'asc';
+
+    const [sortBy, setSortBy] = useState(sortByParam);
+    const [order, setOrder] = useState(orderParam);
 
     // Utilisé pour changer le titre de la page
     useEffect(() => {
         document.title = "Marvel App"; // Modification du titre de la page
     }, []);
 
+    // Mettre à jour les états locaux lorsque les paramètres de l'URL changent
+    useEffect(() => {
+        setSortBy(sortByParam);
+        setOrder(orderParam);
+    }, [sortByParam, orderParam]);
+
     const handleSortChange = (event) => {
-        setSortBy(event.target.value);
-        navigate(`/?sort=${event.target.value}&order=${order}`);
+        const newSortBy = event.target.value;
+        setSortBy(newSortBy);
+        setSearchParams({ sort: newSortBy, order });
     };
 
     const handleOrderChange = (event) => {
-        setOrder(event.target.value);
-        navigate(`/?sort=${sortBy}&order=${event.target.value}`);
+        const newOrder = event.target.value;
+        setOrder(newOrder);
+        setSearchParams({ sort: sortBy, order: newOrder });
     };
 
     return (

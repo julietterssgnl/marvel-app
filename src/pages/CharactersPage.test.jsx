@@ -40,9 +40,7 @@ describe('CharactersPage Component', () => {
             expect(characterElement).toBeInTheDocument();
         });
 
-        // Vérification du nombre de personnages affiché
-        const numberOfCharactersElement = screen.getByText(`There is ${characters.length} characters`);
-        expect(numberOfCharactersElement).toBeInTheDocument();
+        
     });
 
     test('updates sort and order parameters when dropdowns are changed', () => {

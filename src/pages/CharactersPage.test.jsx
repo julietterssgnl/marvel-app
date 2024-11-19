@@ -1,50 +1,67 @@
 import '@testing-library/jest-dom';
-
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import CharactersPage from './CharactersPage';
 import { BrowserRouter } from 'react-router-dom';
 
 const characters = [
     {
         id: "1",
-        name: "Thor"
+        name: "Thor",
     },
     {
         id: "2",
-        name: "Captain America"
-    }
+        name: "Captain America",
+    },
 ];
 
-// mock the useLoaderData hook, so that we can test the CharactersPage component
+// Mock de la fonction useLoaderData pour simuler les données chargées
 jest.mock('react-router', () => ({
-    ...jest.requireActual('react-router'), // use actual for all non-hook parts
+    ...jest.requireActual('react-router'), // Utilisation réelle pour les parties non-mockées
     useLoaderData: () => {
         return characters;
     },
 }));
 
-test('render CharactersPage component', () => {
-    // when
+describe('CharactersPage Component', () => {
+    test('renders CharactersPage component correctly', () => {
+        // Render du composant
+        render(<CharactersPage />, { wrapper: BrowserRouter });
 
-    // then
-    render(<CharactersPage />, { wrapper: BrowserRouter });
+        // Vérification du titre de la page
+        expect(document.title).toBe('Marvel App');
 
-    // expect the document title to be "Marvel App"
-    expect(document.title).toBe('Marvel App');
+        // Vérification de la présence du titre "Marvel Characters"
+        const h2Element = screen.getByRole('heading', { level: 2, name: 'Marvel Characters' });
+        expect(h2Element).toBeInTheDocument();
 
-    // expect the heading 'Marvel Characters' to be in the document
-    const h2Element = screen.getByRole('heading', { level: 2, name: "Marvel Characters" });
-    expect(h2Element).toBeInTheDocument();
+        // Vérification de la présence des personnages dans la liste
+        characters.forEach((character) => {
+            const characterElement = screen.getByText(character.name);
+            expect(characterElement).toBeInTheDocument();
+        });
 
-    // expect the character Thor to be in the document
-    const thorElement = screen.getByText(characters[0].name);
-    expect(thorElement).toBeInTheDocument();
+        // Vérification du nombre de personnages affiché
+        const numberOfCharactersElement = screen.getByText(`There is ${characters.length} characters`);
+        expect(numberOfCharactersElement).toBeInTheDocument();
+    });
 
-    // expect the charater Captain America to be in the document
-    const captainAmericaElement = screen.getByText(characters[1].name);
-    expect(captainAmericaElement).toBeInTheDocument();
-    
-    // expect the number of characters to be in the document
-    const numberOfCharactersElement = screen.getByText(`There is ${characters.length} characters`);
-    expect(numberOfCharactersElement).toBeInTheDocument();
+    test('updates sort and order parameters when dropdowns are changed', () => {
+        // Render du composant
+        render(<CharactersPage />, { wrapper: BrowserRouter });
+
+        // Vérification initiale des valeurs des listes déroulantes
+        const sortSelect = screen.getByLabelText('Sort by:');
+        expect(sortSelect).toHaveValue('name'); // Valeur par défaut : 'name'
+
+        const orderSelect = screen.getByLabelText('Order:');
+        expect(orderSelect).toHaveValue('asc'); // Valeur par défaut : 'asc'
+
+        // Simulation du changement de tri
+        fireEvent.change(sortSelect, { target: { value: 'modified' } });
+        expect(sortSelect.value).toBe('modified'); // Nouvelle valeur : 'modified'
+
+        // Simulation du changement d'ordre
+        fireEvent.change(orderSelect, { target: { value: 'desc' } });
+        expect(orderSelect.value).toBe('desc'); // Nouvelle valeur : 'desc'
+    });
 });

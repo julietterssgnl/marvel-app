@@ -4,7 +4,7 @@
 import characters from '../data/characters.json';
 
 // Fonction pour retourner la liste des personnages avec un tri par ordre alphabétique ou date de modification avec gestion des valeurs par defaut
-
+// Les valeurs par défaut sont name et asc
 /**
  * @param {string} sortBy - The field to sort by
  * @param {string} order - The order to sort by

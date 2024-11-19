@@ -9,8 +9,8 @@ export default function CharactersPage() {
     const navigate = useNavigate();
     const [searchParams, setSearchParams] = useSearchParams();
 
-    const sortByParam = searchParams.get('sort') || 'name';
-    const orderParam = searchParams.get('order') || 'asc';
+    const sortByParam = searchParams.get('sort');
+    const orderParam = searchParams.get('order');
 
     const [sortBy, setSortBy] = useState(sortByParam);
     const [order, setOrder] = useState(orderParam);
@@ -43,11 +43,13 @@ export default function CharactersPage() {
             <h2>Marvel Characters</h2>
 
             {/* Ajout de listes déroulantes pour les tris par nom et date de modification ainsi que ascending et descending */}
-            <select value={sortBy} onChange={handleSortChange}>
+            <label htmlFor="sort">Sort by:</label>
+            <select id="sort" value={sortBy} onChange={handleSortChange}>
                 <option value="name">Name</option>
                 <option value="modified">Modified</option>
             </select>
-            <select value={order} onChange={handleOrderChange}>
+            <label htmlFor="order">Order:</label>
+            <select id="order" value={order} onChange={handleOrderChange}>
                 <option value="asc">Ascending</option>
                 <option value="desc">Descending</option>
             </select>

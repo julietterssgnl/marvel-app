@@ -9,7 +9,7 @@ test('renders "There is no character" when characters array is empty', () => {
 test('renders the correct number of characters when characters array is not empty', () => {
     const characters = ['Character 1','Character 2','Character 3'];
     render(<NumberOfCharacters characters={characters} />);
-    expect(screen.getByText('There is 3 characters')).toBeInTheDocument();
+    expect(screen.getByText('There are 3 characters')).toBeInTheDocument();
 });
 
 test('renders "There is no character" when no characters are provided', () => {
@@ -17,3 +17,10 @@ test('renders "There is no character" when no characters are provided', () => {
     // screen.debug();
     expect(screen.getByText('There is no character')).toBeInTheDocument();
 });
+
+test('renders "There is one character" when one character is provided', () => {
+    render(<NumberOfCharacters characters={['Character 1']} />);
+    expect(screen.getByText('There is one character')).toBeInTheDocument();
+});
+
+

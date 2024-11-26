@@ -1,6 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
+  <file path="C:\Users\jrossi04\marvel-app\src\components\chart-utils.test.js">
+    <testCase name="prepareData should return an empty array when no data is provided" duration="9"/>
+    <testCase name="prepareData should return the correct transformed data when all values are provided" duration="1"/>
+    <testCase name="prepareData should filter out elements with undefined values" duration="1"/>
+    <testCase name="prepareData should handle partial data correctly" duration="1"/>
+  </file>
+  <file path="C:\Users\jrossi04\marvel-app\src\api\characters-api.test.js">
+    <testCase name="getCharacters should return characters sorted by name in ascending order by default" duration="21"/>
+    <testCase name="getCharacters should return characters sorted by name in descending order" duration="1"/>
+    <testCase name="getCharacters should return characters sorted by modified date in ascending order" duration="1"/>
+    <testCase name="getCharacters should return characters sorted by modified date in descending order" duration="0"/>
+    <testCase name="getCharacters should return characters sorted by name in descending order using custom sort function" duration="1"/>
+    <testCase name="getCharacterById should return the character with the provided id" duration="1"/>
+    <testCase name="getCharacterById should throw an error if the character with the provided id does not exist" duration="9"/>
+  </file>
+  <file path="C:\Users\jrossi04\marvel-app\src\components\NumberOfCharacters.test.jsx">
+    <testCase name="renders &quot;There is no character&quot; when characters array is empty" duration="39"/>
+    <testCase name="renders the correct number of characters when characters array is not empty" duration="5"/>
+    <testCase name="renders &quot;There is no character&quot; when no characters are provided" duration="4"/>
+    <testCase name="renders &quot;There is one character&quot; when one character is provided" duration="3"/>
+  </file>
+  <file path="C:\Users\jrossi04\marvel-app\src\pages\AboutPage.test.jsx">
+    <testCase name="render AboutPage component" duration="84"/>
+  </file>
+  <file path="C:\Users\jrossi04\marvel-app\src\components\CharacterDetail.test.jsx">
+    <testCase name="CharacterDetail component renders character image, description and modification date" duration="49"/>
+    <testCase name="CharacterDetail component renders default description when no description is available" duration="5"/>
+    <testCase name="CharacterDetail component renders default modification date when no modification date is available" duration="5"/>
+  </file>
+  <file path="C:\Users\jrossi04\marvel-app\src\pages\ContactPage.test.jsx">
+    <testCase name="render ContactPage component" duration="91"/>
+  </file>
+  <file path="C:\Users\jrossi04\marvel-app\src\components\CharactersList.test.jsx">
+    <testCase name="CharactersList component renders the correct number of characters and a link for each character" duration="96"/>
+    <testCase name="CharactersList component renders an empty list when no characters are provided" duration="3"/>
+    <testCase name="CharactersList component renders when nothing is provided" duration="3"/>
+  </file>
+  <file path="C:\Users\jrossi04\marvel-app\src\components\D3PieChart.test.jsx">
+    <testCase name="D3PieChart renders D3PieChart with label and value" duration="57"/>
+  </file>
+  <file path="C:\Users\jrossi04\marvel-app\src\pages\CharactersPage.test.jsx">
+    <testCase name="CharactersPage Component renders CharactersPage component correctly" duration="107"/>
+    <testCase name="CharactersPage Component updates sort and order parameters when dropdowns are changed" duration="21"/>
+  </file>
+  <file path="C:\Users\jrossi04\marvel-app\src\components\RechartsPieChart.test.jsx">
+    <testCase name="RechartsPieChart renders RechartsPieChart" duration="66"/>
+  </file>
   <file path="C:\Users\jrossi04\marvel-app\src\pages\CharacterDetailPage.test.jsx">
-    <testCase name="CharacterDetailPage render CharacterDetailPage component" duration="109"/>
+    <testCase name="CharacterDetailPage render CharacterDetailPage component" duration="100"/>
   </file>
 </testExecutions>

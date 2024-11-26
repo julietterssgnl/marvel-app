@@ -10,12 +10,12 @@ jest.mock('./chart-utils', () => ({
 
 describe('D3PieChart', () => {
     const data = [
-        { name: 'Force', value: 10 },
-        { name: 'Intelligence', value: 8 },
-        { name: 'Energy', value: 7 },
-        { name: 'Speed', value: 9 },
-        { name: 'Durability', value: 6 },
-        { name: 'Fighting', value: 5 },
+        { name: 'Force', value: 8 },
+        { name: 'Intelligence', value: 7 },
+        { name: 'Energy', value: 9 },
+        { name: 'Speed', value: 6 },
+        { name: 'Durability', value: 5 },
+        { name: 'Fighting', value: 10 },
     ];
 
     beforeEach(() => {

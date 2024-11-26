@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
-  <file path="C:\Users\jrossi04\marvel-app\src\pages\CharactersPage.test.jsx">
-    <testCase name="CharactersPage Component renders CharactersPage component correctly" duration="134"/>
-    <testCase name="CharactersPage Component updates sort and order parameters when dropdowns are changed" duration="18"/>
+  <file path="C:\Users\jrossi04\marvel-app\src\pages\CharacterDetailPage.test.jsx">
+    <testCase name="CharacterDetailPage render CharacterDetailPage component" duration="109"/>
   </file>
 </testExecutions>

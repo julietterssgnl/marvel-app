@@ -3,6 +3,11 @@ module.exports = {
     transform: {
       "^.+\\.jsx?$": "babel-jest",
     },
+    //ignore e2e tests
+    testPathIgnorePatterns: [
+      "/e2e-tests/",
+      "/tests-examples/"
+    ],
     collectCoverageFrom: [
       "src/**/*.{js,jsx}", // Collect coverage from all js or jsx files in src folder
       "!src/**/*.test.{js,jsx}", // Exclude test files from coverage

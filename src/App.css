@@ -52,6 +52,13 @@ li {
   border-bottom: 1px solid #ccc;
 }
 
+/* hide footer on small screens */
+@media (max-width: 600px) {
+  footer {
+    display: none;
+  }
+}
+
 footer {
   margin: 0;
   padding: 20px;

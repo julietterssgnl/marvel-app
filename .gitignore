@@ -8,10 +8,10 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
+test-report.xml
 dist
 dist-ssr
 *.local
-test-report.xml
 
 # Editor directories and files
 .vscode/*
@@ -23,7 +23,8 @@ test-report.xml
 *.njsproj
 *.sln
 *.sw?
-
-
-# Ajoutés à la main
 coverage
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

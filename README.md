@@ -1,36 +1,48 @@
 # Marvel App
 
+Marvel App est une application web qui permet aux utilisateurs de consulter des informations sur les personnages de l'univers Marvel.
+
+## Fonctionnalités
+
+- Affichage de la liste des personnages Marvel
+- Affichage des détails d'un personnage spécifique
+- Recherche de personnages par nom
+- Navigation entre les pages de personnages
+
 ## Installation
 
-git clone url-du-projet
-cd marvel-app
+1. Clonez le dépôt :
+   ```sh
+   git clone https://github.com/votre-utilisateur/marvel-app.git
+   cd marvel-app
 
-npm install
+2. Installez les dépendances :
+    npm install
 
-## Lancement
+## Utilisation
+1. Démarrez l'application :
+    npm start
 
-npm run dev
+2. Ouvrez votre navigateur et accédez à http://localhost:3000.
 
-L'application est accessible à l'adresse affichée dans la console.
+## Tests
+Pour exécuter les tests, utilisez la commande suivante :
+    npm test
 
-## Rechargement à chaud
+Structure du projet
+src/
+components/ : Composants réutilisables de l'application
+pages/ : Pages principales de l'application
+api/ : Fonctions pour récupérer les données des personnages
+App.js : Composant principal de l'application
+index.js : Point d'entrée de l'application
+Dépendances
+React
+React Router
+Jest
+React Testing Library
+Contribution
+Les contributions sont les bienvenues ! Veuillez soumettre une pull request ou ouvrir une issue pour discuter des modifications que vous souhaitez apporter.
 
-L'application supporte le rechargement à chaud, ce qui signifie que les modifications du code source sont prises en compte sans avoir à recharger la page.
-
-## Point d'entrée
-
-Le point d'entrée de l'application est le fichier `index.html` situé à la racine du projet. C'est ce fichier qui est chargé dans le navigateur et qui charge ensuite le fichier `main.jsx` qui est le point d'entrée de l'application React.
-
-
-## Comment lancer les tests unitaires
-
-Lancer les tests unitaires
-Pour exécuter les tests unitaires dans votre projet, suivez ces étapes :
-
-Installer les dépendances :
-
-npm install --save-dev jest @testing-library/react @testing-library/jest-dom
-
-Lancer les tests : 
-
-npm test
+Licence
+Ce projet est sous licence MIT. Voir le fichier LICENSE pour plus de détails.

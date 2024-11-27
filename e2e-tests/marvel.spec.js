@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 
 test("navigation in marvel-app is correct", async ({ page }) => {
-  test.setTimeout(120_000);
+
   await page.goto("http://localhost:5173");
 
   // Expect a title "to contain" a substring.

@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 
 test("test footer display", async ({ page }) => {
-    test.setTimeout(120_000);
+
     await page.goto("http://localhost:5173");
 
     // get the size of the viewport

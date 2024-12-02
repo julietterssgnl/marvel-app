@@ -13,8 +13,8 @@ describe('CharacterModifiedDate', () => {
   });
 
   test('formats a valid ISO 8601 date string correctly', () => {
-    const result = CharacterModifiedDate({ modified: '2023-12-01T10:00:00Z' });
-    expect(result).toBe('Dec 1, 2023');
+    const result = CharacterModifiedDate({ modified: '2022-12-01T10:00:00Z' });
+    expect(result).toBe('Dec 1, 2022');
   });
 
   test('handles edge case with a valid ISO 8601 string without time zone', () => {
@@ -23,7 +23,7 @@ describe('CharacterModifiedDate', () => {
   });
 
   test('formats a valid date with time zone correctly', () => {
-    const result = CharacterModifiedDate({ modified: '2023-12-01T10:00:00+01:00' });
-    expect(result).toBe('Dec 1, 2023');
+    const result = CharacterModifiedDate({ modified: '2023-11-01T10:00:00+01:00' });
+    expect(result).toBe('Nov 1, 2023');
   });
 });

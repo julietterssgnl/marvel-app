@@ -2,15 +2,18 @@ import '@testing-library/jest-dom';
 import { render, screen, fireEvent } from '@testing-library/react';
 import CharactersPage from './CharactersPage';
 import { BrowserRouter } from 'react-router-dom';
+import { CharacterModifiedDate } from '../components/CharacterModifiedDate'; // Si nécessaire
 
 const characters = [
     {
         id: "1",
         name: "Thor",
+        modified: "2023-12-01T10:00:00Z",  // Date de modification valide
     },
     {
         id: "2",
         name: "Captain America",
+        modified: "2023-11-01T15:30:00Z",  // Date de modification valide
     },
 ];
 
@@ -24,7 +27,6 @@ jest.mock('react-router', () => ({
 
 describe('CharactersPage Component', () => {
     test('renders CharactersPage component correctly', () => {
-        // Render du composant
         render(<CharactersPage />, { wrapper: BrowserRouter });
 
         // Vérification du titre de la page
@@ -38,13 +40,23 @@ describe('CharactersPage Component', () => {
         characters.forEach((character) => {
             const characterElement = screen.getByText(character.name);
             expect(characterElement).toBeInTheDocument();
-        });
 
-        
+            // Vérification de la présence de la balise <strong> pour le nom
+            const strongElement = screen.getByText(character.name).closest('strong');
+            expect(strongElement).toBeInTheDocument(); // Vérifie si la balise <strong> est présente
+
+            // Vérification de la présence de la balise <a> pour le lien
+            const linkElement = screen.getByText(character.name).closest('a');
+            expect(linkElement).toBeInTheDocument(); // Vérifie si la balise <a> est présente
+            expect(linkElement).toHaveAttribute('href', `/character/${character.id}`); // Vérifie que le lien contient le bon href
+
+            // Vérification de la présence de la balise <small> pour la date de modification
+            const smallElement = screen.getByText(CharacterModifiedDate({ modified: character.modified }));
+            expect(smallElement).toBeInTheDocument(); // Vérifie si la balise <small> est présente
+        });
     });
 
     test('updates sort and order parameters when dropdowns are changed', () => {
-        // Render du composant
         render(<CharactersPage />, { wrapper: BrowserRouter });
 
         // Vérification initiale des valeurs des listes déroulantes

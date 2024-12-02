@@ -3,6 +3,7 @@
 import { NumberOfCharacters } from '../components/NumberOfCharacters'; // Chemin d'accès pour l'importation
 import { useLoaderData, useNavigate, useSearchParams } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
+import { CharacterModifiedDate } from '../components/CharacterModifiedDate'; // Chemin d'accès pour l'importation
 
 export default function CharactersPage() {
     const characters = useLoaderData(); // Assurez-vous que cette fonction soit importée correctement
@@ -56,7 +57,7 @@ export default function CharactersPage() {
             <ul>
                 {characters.map(character => (
                     <li key={character.id}>
-                        <a href={`/character/${character.id}`}>{character.name}</a>
+                        <strong><a href={`/character/${character.id}`}>{character.name}</a></strong> - <small>{CharacterModifiedDate({ modified: character.modified })}</small>                    
                     </li>
                 ))}
             </ul>

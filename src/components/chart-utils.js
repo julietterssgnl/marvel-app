@@ -18,3 +18,16 @@ export function prepareData (data = {})  {
     // Supprime les éléments avec des valeurs undefined
     return transformData.filter((element) => element.value !== undefined);
 };
+
+/**
+ * Adapte les données pour le RadarChart à partir de données transformées.
+ * @param {Array} data - Les données préparées par `prepareData`.
+ * @param {string} key - Le préfixe de la clé pour identifier chaque personnage (ex: "A", "B").
+ * @returns {Array} - Tableau d'objets adapté pour le RadarChart.
+ */
+export function adaptDataForRadarChart(data = [], key = 'A') {
+    return data.map((item) => ({
+        subject: item.name,
+        [key]: item.value,
+    }));
+}

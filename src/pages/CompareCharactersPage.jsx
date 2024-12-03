@@ -1,5 +1,6 @@
 import React from 'react';
 import { getCharacters } from '../api/characters-api';
+import RadarChartComponent from '../components/RadarChart';
 const CompareCharactersPage = () => {
     // change the title of the page
     document.title = "Compare | Marvel App";
@@ -52,11 +53,11 @@ const CompareCharactersPage = () => {
                 </select>
             </p>
 
-            { /* A supprimer, permet le voir comment récupérer les éléments selectionnés */ }
             <p style={centerStyle}>
-                {characters[option1.value].name} vs {characters[option2.value].name}
-            </p>
-            { /* Fin de la partie à supprimer */ }
+                <RadarChartComponent
+                    character1={characters[option1.value]}
+                    character2={characters[option2.value]}
+                />            </p>
         </>
     );
 };

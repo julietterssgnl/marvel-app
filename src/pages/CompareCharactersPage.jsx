@@ -1,18 +1,11 @@
 import React from 'react';
-
+import { getCharacters } from '../api/characters-api';
 const CompareCharactersPage = () => {
     // change the title of the page
     document.title = "Compare | Marvel App";
 
-    // A supprimer, permet de rendre le composant fonctionnel dans un premier temps
-    const characters = [
-        {
-            name: '...'
-        },{
-            name: '---'
-        }
-    ]
-    // Fin de la partie à supprimer
+    // Charger les personnages triés par ordre alphabétique
+    const characters = getCharacters('name', 'asc');
 
     // transform the characters to array of label/value objects
     const options = characters.map((character, index) => ({

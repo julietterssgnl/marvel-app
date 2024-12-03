@@ -1,6 +1,6 @@
 import React from 'react';
 import { getCharacters } from '../api/characters-api';
-import RadarChartComponent from '../components/RadarChart';
+import MyRadarChart from '../components/MyRadarChart';
 const CompareCharactersPage = () => {
     // change the title of the page
     document.title = "Compare | Marvel App";
@@ -54,7 +54,7 @@ const CompareCharactersPage = () => {
             </p>
 
             <p style={centerStyle}>
-                <RadarChartComponent
+                <MyRadarChart
                     character1={characters[option1.value]}
                     character2={characters[option2.value]}
                 />            </p>

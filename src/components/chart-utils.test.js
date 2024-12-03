@@ -1,61 +1,73 @@
-import { prepareData } from './chart-utils';
+// chart-utils.test.js
+import { prepareData, adaptDataForRadarChart } from './chart-utils';
 
-describe('prepareData', () => {
-    it('should return an empty array when no data is provided', () => {
-        const result = prepareData();
-        expect(result).toEqual([]);
+describe('chart-utils.js', () => {
+    describe('prepareData', () => {
+        it('should transform the data correctly and remove undefined values', () => {
+            const input = {
+                force: 80,
+                intelligence: 90,
+                energy: 70,
+                speed: undefined,
+                durability: 85,
+                fighting: 75
+            };
+
+            const expected = [
+                { name: 'Force', value: 80 },
+                { name: 'Intelligence', value: 90 },
+                { name: 'Energy', value: 70 },
+                { name: 'Durability', value: 85 },
+                { name: 'Fighting', value: 75 }
+            ];
+
+            expect(prepareData(input)).toEqual(expected);
+        });
+
+        it('should return an empty array when no data is provided', () => {
+            expect(prepareData()).toEqual([]);
+        });
+
+        it('should return an empty array when all values are undefined', () => {
+            const input = {
+                force: undefined,
+                intelligence: undefined,
+                energy: undefined,
+                speed: undefined,
+                durability: undefined,
+                fighting: undefined
+            };
+
+            expect(prepareData(input)).toEqual([]);
+        });
     });
 
-    it('should return the correct transformed data when all values are provided', () => {
-        const data = {
-            force: 10,
-            intelligence: 8,
-            energy: 7,
-            speed: 9,
-            durability: 6,
-            fighting: 5,
-        };
-        const expected = [
-            { name: 'Force', value: 10 },
-            { name: 'Intelligence', value: 8 },
-            { name: 'Energy', value: 7 },
-            { name: 'Speed', value: 9 },
-            { name: 'Durability', value: 6 },
-            { name: 'Fighting', value: 5 },
-        ];
-        const result = prepareData(data);
-        expect(result).toEqual(expected);
-    });
+    describe('adaptDataForRadarChart', () => {
+        it('should adapt the data correctly for RadarChart', () => {
+            const data = [
+                { name: 'Force', value: 80 },
+                { name: 'Intelligence', value: 90 },
+                { name: 'Energy', value: 70 }
+            ];
 
-    it('should filter out elements with undefined values', () => {
-        const data = {
-            force: 10,
-            intelligence: undefined,
-            energy: 7,
-            speed: undefined,
-            durability: 6,
-            fighting: 5,
-        };
-        const expected = [
-            { name: 'Force', value: 10 },
-            { name: 'Energy', value: 7 },
-            { name: 'Durability', value: 6 },
-            { name: 'Fighting', value: 5 },
-        ];
-        const result = prepareData(data);
-        expect(result).toEqual(expected);
-    });
+            const expectedA = [
+                { subject: 'Force', A: 80 },
+                { subject: 'Intelligence', A: 90 },
+                { subject: 'Energy', A: 70 }
+            ];
 
-    it('should handle partial data correctly', () => {
-        const data = {
-            force: 10,
-            energy: 7,
-        };
-        const expected = [
-            { name: 'Force', value: 10 },
-            { name: 'Energy', value: 7 },
-        ];
-        const result = prepareData(data);
-        expect(result).toEqual(expected);
+            const expectedB = [
+                { subject: 'Force', B: 80 },
+                { subject: 'Intelligence', B: 90 },
+                { subject: 'Energy', B: 70 }
+            ];
+
+            expect(adaptDataForRadarChart(data, 'A')).toEqual(expectedA);
+            expect(adaptDataForRadarChart(data, 'B')).toEqual(expectedB);
+        });
+
+        it('should return an empty array when no data is provided', () => {
+            expect(adaptDataForRadarChart([], 'A')).toEqual([]);
+        });
     });
 });
